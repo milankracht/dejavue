@@ -1,0 +1,59 @@
+/* VARIABLES */
+/* MIXINS */
+body {
+  width: 100%;
+  min-height: 100vh;
+  color: white;
+  font-size: 16px;
+  background-image: radial-gradient(farthest-corner at 50% 25%, #554848 0%, #0A0808 100%);
+  background-repeat: no-repeat;
+  background-color: #112;
+  background-attachment: fixed;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    width: 75rem;
+  }
+}
+
+.movie-detail {
+  position: fixed;
+  z-index: 2;
+  display: none;
+  top: 100vh;
+  width: 100%;
+  min-height: 100vh;
+  background: #999;
+}
+
+.movie-detail.visible {
+  top: 0;
+  display: block;
+}
+
+.poster {
+  width: 8rem;
+  height: 14rem;
+  margin: 0 0.25rem 2rem 0.25rem;
+}
+
+.poster .image {
+  width: 8rem;
+  height: 10rem;
+  -webkit-box-shadow: 0 2px 8px rgba(255, 255, 255, 0.25);
+          box-shadow: 0 2px 8px rgba(255, 255, 255, 0.25);
+  background-color: #222;
+}
+/*# sourceMappingURL=main.css.map */
