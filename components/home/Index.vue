@@ -1,22 +1,13 @@
 <template>
   <div class="wrapper">
-    <header>
-      <div class="container">
-        <div class="col">
-          <h1>DejaVue</h1>
-        </div>
-        <div class="col">
-          <input type="text" v-model="search" />
-        </div>
-      </div>
-    </header>
+    <Header :search="search" @handleSearchString="setSearchString" />
     <div class="container main-content">
       <Carousel @handleMovieSelection="showMovie" />
     </div>
     <SearchResults
       :showSearchResults="showSearchResults"
       :search="search"
-      @handleHideSearchResults="showSearchResults = false" />
+      @handleHideSearchResults="showSearchResults = false, search = ''" />
     <Detail
       :selectedMovie="selectedMovie"
       @handleDeselectMovie="hideMovie"
@@ -28,6 +19,7 @@
 </template>
 
 <script>
+import Header from '@/components/home/Header.vue'
 import Carousel from '@/components/home/Carousel.vue'
 import Detail from '@/components/detail/Index.vue'
 import TrailerModal from '@/components/home/TrailerModal.vue'
@@ -35,6 +27,7 @@ import SearchResults from '@/components/home/SearchResults.vue'
 
 export default {
   components: {
+    Header,
     Carousel,
     Detail,
     TrailerModal,
@@ -45,7 +38,7 @@ export default {
       selectedMovie: null,
       showTrailerModal: false,
       showSearchResults: false,
-      search: null
+      search: ''
     }
   },
   watch: {
@@ -64,6 +57,9 @@ export default {
     },
     hideMovie () {
       this.selectedMovie = null
+    },
+    setSearchString (searchString) {
+      this.search = searchString
     }
   }
 }

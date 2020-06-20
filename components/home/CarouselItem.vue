@@ -1,8 +1,6 @@
 <template>
-  <div class="poster">
-    <div class="image">
-      Bla
-    </div>
+  <div class="carousel-item">
+    <Poster />
     <h3>
       {{ title }}
     </h3>
@@ -10,9 +8,11 @@
 </template>
 
 <script>
+import Poster from '@/components/generic/Poster.vue'
 
 export default {
   components: {
+    Poster
   },
   props: {
     title: String

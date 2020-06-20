@@ -2,8 +2,8 @@
   <div class="trailer-modal" :class="{ visible: showTrailerModal }">
     <div class="container">
       <h3>Movie title</h3>
-      <video id="video" width="640" poster="//shaka-player-demo.appspot.com/assets/poster.jpg" controls autoplay></video>
-      <p @click="$emit('handleHideTrailerModal')">Close</p>
+      <i class="icon close-icon" @click="$emit('handleHideTrailerModal')" />
+      <video id="video" controls autoplay></video>
     </div>
   </div>
 </template>

@@ -1,33 +1,30 @@
 <template>
-  <div>
+  <div class="carousel">
+    <h2>Title</h2>
     <flickity ref="flickity" :options="flickityOptions">
-      <Poster title="Movie title 1" @staticClick="selectMovie(1)" />
-      <Poster title="Movie title 2" @click="selectMovie(2)" />
-      <Poster title="Movie title 3" @click="selectMovie(3)" />
-      <Poster title="Movie title 4" @click="selectMovie(4)" />
-      <Poster title="Movie title 5" @click="selectMovie(5)" />
-      <Poster title="Movie title 6" @click="selectMovie(6)" />
-      <Poster title="Movie title 7" @click="selectMovie(7)" />
-      <Poster title="Movie title 8" @click="selectMovie(8)" />
-      <Poster title="Movie title 9" @click="selectMovie(9)" />
-      <Poster title="Movie title 10" @click="selectMovie(10)" />
+      <CarouselItem title="Movie title 1" @staticClick="selectMovie(1)" />
+      <CarouselItem title="Movie title 2" @click="selectMovie(2)" />
+      <CarouselItem title="Movie title 3" @click="selectMovie(3)" />
+      <CarouselItem title="Movie title 4" @click="selectMovie(4)" />
+      <CarouselItem title="Movie title 5" @click="selectMovie(5)" />
+      <CarouselItem title="Movie title 6" @click="selectMovie(6)" />
+      <CarouselItem title="Movie title 7" @click="selectMovie(7)" />
+      <CarouselItem title="Movie title 8" @click="selectMovie(8)" />
+      <CarouselItem title="Movie title 9" @click="selectMovie(9)" />
+      <CarouselItem title="Movie title 10" @click="selectMovie(10)" />
     </flickity>
-    <button @click="previous()">
-      Custom Previous Button
-    </button>
-    <button @click="next()">
-      Custom Next Button
-    </button>
+    <i class="carousel-button back" @click="previous()" />
+    <i class="carousel-button foreward" @click="next()" />
   </div>
 </template>
 
 <script>
 import Flickity from 'vue-flickity'
-import Poster from '@/components/home/Poster.vue'
+import CarouselItem from '@/components/home/CarouselItem.vue'
 
 export default {
   components: {
-    Poster,
+    CarouselItem,
     Flickity
   },
   data () {

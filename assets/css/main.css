@@ -1,11 +1,123 @@
+/* FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400&display=swap");
 /* VARIABLES */
 /* MIXINS */
+h1 {
+  margin: 1rem 0 2rem;
+  color: #F0751A;
+  font-family: 'Ubuntu';
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 3rem;
+  text-shadow: 0 2px 6px black;
+}
+
+h2 {
+  margin: 0.5rem 0;
+  color: white;
+  font-family: 'Ubuntu';
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+
+h3 {
+  margin: 0.25rem 0;
+  color: white;
+  font-family: 'Ubuntu';
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+p {
+  margin: 0 0 1.25rem 0;
+  color: white;
+  font-family: 'Ubuntu';
+  font-weight: normal;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+a:link, a:visited {
+  color: #F0751A;
+  font-family: 'Ubuntu';
+  font-weight: 500;
+  text-decoration: none;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+a:hover {
+  color: #f28332;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-size: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.icon.search-icon {
+  background-image: url("/search@2x.png");
+}
+
+.icon.close-icon {
+  background-image: url("/close@2x.png");
+  background-size: 75%;
+  cursor: pointer;
+}
+
+.icon.back-icon {
+  background-image: url("/back@2x.png");
+  cursor: pointer;
+}
+
+.btn {
+  padding: 0.5rem 2rem;
+  color: #F0751A;
+  font-family: 'Ubuntu';
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 2rem;
+  border: none;
+  background-color: white;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 2px 4px black;
+          box-shadow: 0 2px 4px black;
+  cursor: pointer;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn.btn-primary {
+  color: white;
+  background-color: #F0751A;
+}
+
+.btn:hover {
+  -webkit-box-shadow: 0 4px 8px black;
+          box-shadow: 0 4px 8px black;
+  background-color: #eee;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover.btn-primary {
+  background-color: #f28332;
+}
+
 body {
   width: 100%;
   min-height: 100vh;
   margin: 0;
   padding: 0;
   color: white;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 16px;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#554848), color-stop(10rem, #554848), to(#0A0808));
   background-image: linear-gradient(#554848, #554848 10rem, #0A0808);
@@ -21,8 +133,9 @@ body {
 }
 
 .container {
-  width: 100%;
+  width: calc(100% - 2rem);
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -33,6 +146,14 @@ body {
 
 .container.main-content {
   padding-top: 9rem;
+}
+
+.poster {
+  width: 16rem;
+  height: 20rem;
+  -webkit-box-shadow: 0 2px 8px rgba(255, 255, 255, 0.25);
+          box-shadow: 0 2px 8px rgba(255, 255, 255, 0.25);
+  background-color: #222;
 }
 
 header {
@@ -48,65 +169,189 @@ header .col {
   width: 50%;
 }
 
+header .logo {
+  width: 203px;
+  height: 71px;
+  margin: 1.5rem 0 0 -0.5rem;
+  background-image: url("/logo.png");
+  background-size: contain;
+}
+
+header input {
+  float: right;
+  width: 22rem;
+  margin: 2rem 0 0;
+  padding: 0.5rem 0.75rem;
+  color: white;
+  font-size: 0.875rem;
+  font-family: 'Ubuntu';
+  font-weight: normal;
+  line-height: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  background-color: #5b4d4d;
+}
+
+header .icon {
+  float: right;
+  margin: 2.25rem 0 0 0.5rem;
+}
+
 .movie-detail {
   position: fixed;
   z-index: 3;
-  display: none;
   top: 0;
   left: 100vw;
   width: 100%;
   min-height: 100vh;
-  background: #999;
+  background: #0A0808;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#554848), to(#0A0808));
+  background-image: linear-gradient(#554848, #0A0808);
+  -webkit-transition: left 0.15s ease-in-out;
+  transition: left 0.15s ease-in-out;
 }
 
 .movie-detail.visible {
   left: 0;
-  display: block;
+  -webkit-transition: left 0.35s ease-in-out;
+  transition: left 0.35s ease-in-out;
 }
 
-.poster {
-  width: 8rem;
-  height: 14rem;
-  margin: 0 0.25rem 2rem 0.25rem;
+.movie-detail .back-icon {
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
 }
 
-.poster .image {
-  width: 8rem;
-  height: 10rem;
-  -webkit-box-shadow: 0 2px 8px rgba(255, 255, 255, 0.25);
-          box-shadow: 0 2px 8px rgba(255, 255, 255, 0.25);
-  background-color: #222;
+.movie-detail .btn {
+  margin-top: 1rem;
+}
+
+.movie-detail .col {
+  float: left;
+  margin-top: 7rem;
+}
+
+.movie-detail .col:first-child {
+  width: 60%;
+}
+
+.movie-detail .col:last-child {
+  width: 40%;
+  text-align: right;
+}
+
+.movie-detail .col:last-child > * {
+  float: right;
 }
 
 .trailer-modal {
   position: fixed;
   z-index: 4;
-  display: none;
   top: 100vh;
   left: 0;
   width: 100%;
   min-height: 100vh;
   background: #0A0808;
+  -webkit-transition: top 0.15s ease-in-out;
+  transition: top 0.15s ease-in-out;
 }
 
 .trailer-modal.visible {
   top: 0;
-  display: block;
+  -webkit-transition: top 0.35s ease-in-out;
+  transition: top 0.35s ease-in-out;
+}
+
+.trailer-modal h3 {
+  float: left;
+  margin: 10vh 0 1rem;
+}
+
+.trailer-modal .close-icon {
+  float: right;
+  margin: calc(10vh - 0.5rem) 0 1rem;
+}
+
+.trailer-modal video {
+  width: 100%;
+  background-color: #554848;
 }
 
 .search-results {
   position: fixed;
   z-index: 1;
-  display: none;
   top: 100vh;
   left: 0;
   width: 100%;
   min-height: 100vh;
   background: #0A0808;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#554848), color-stop(10rem, #554848), to(#0A0808));
+  background-image: linear-gradient(#554848, #554848 10rem, #0A0808);
+  -webkit-transition: top 0.15s ease-in-out;
+  transition: top 0.15s ease-in-out;
 }
 
 .search-results.visible {
   top: 0;
+  -webkit-transition: top 0.15s ease-in-out;
+  transition: top 0.15s ease-in-out;
+}
+
+.search-results .carousel-item {
+  float: left;
+  margin: 0 1rem 2rem 0;
+}
+
+.search-results .poster {
+  width: 8rem;
+  height: 10rem;
+}
+
+.carousel {
+  position: relative;
+}
+
+.carousel .carousel-button {
+  position: absolute;
+  top: 5rem;
   display: block;
+  width: 4rem;
+  height: 4rem;
+  background-size: 75%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+.carousel .carousel-button:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.carousel .carousel-button.back {
+  left: -1.5rem;
+  background-image: url("/arrow-back@2x.png");
+}
+
+.carousel .carousel-button.foreward {
+  right: -1.5rem;
+  background-image: url("/arrow-foreward@2x.png");
+}
+
+.carousel .carousel-item {
+  width: 8rem;
+  height: 14rem;
+  margin: 0 0.25rem 2rem 0.25rem;
+  cursor: pointer;
+}
+
+.carousel .carousel-item .poster {
+  width: 8rem;
+  height: 10rem;
 }
 /*# sourceMappingURL=main.css.map */
