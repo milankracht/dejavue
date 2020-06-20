@@ -2,7 +2,8 @@
   <div class="movie-detail" :class="{ visible: selectedMovie }">
     <div class="container">
       <h2>Movie title</h2>
-      <p @click="deselectMovie()">close</p>
+      <p @click="$emit('handleDeselectMovie')">close</p>
+      <button type="button" @click="$emit('handleShowTrailerModal')">Play trailer</button>
     </div>
   </div>
 </template>
@@ -16,9 +17,9 @@ export default {
     selectedMovie: Number
   },
   methods: {
-    deselectMovie () {
-      this.$emit('handleDeselectMovie')
-    }
+    // deselectMovie () {
+    //   this.$emit('handleDeselectMovie')
+    // }
   }
 }
 </script>
