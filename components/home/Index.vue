@@ -2,17 +2,37 @@
   <div class="wrapper">
     <Header :search="search" @handleSearchString="setSearchString" />
     <div class="container main-content">
-      <Carousel @handleMovieSelection="showMovie" />
+      <Carousel
+        listType="trending"
+        mediaType="movie"
+        title="Popular movies"
+        @handleProgramSelection="showProgram" />
+      <Carousel
+        listType="trending"
+        mediaType="tv"
+        title="Popular series"
+        @handleProgramSelection="showProgram" />
+      <Carousel
+        listType="discover"
+        genre="10751"
+        title="Family"
+        @handleProgramSelection="showProgram" />
+      <Carousel
+        listType="discover"
+        genre="99"
+        title="Documentary"
+        @handleProgramSelection="showProgram" />
     </div>
     <SearchResults
-      :showSearchResults="showSearchResults"
       :search="search"
-      @handleHideSearchResults="showSearchResults = false, search = ''" />
+      @handleHideSearchResults="search = ''"
+      @handleProgramSelection="showProgram" />
     <Detail
-      :selectedMovie="selectedMovie"
+      :selectedProgram="selectedProgram"
       @handleDeselectMovie="hideMovie"
       @handleShowTrailerModal="showTrailerModal = true" />
     <TrailerModal
+      :selectedProgram="selectedProgram"
       :showTrailerModal="showTrailerModal"
       @handleHideTrailerModal="showTrailerModal = false" />
   </div>
@@ -35,28 +55,17 @@ export default {
   },
   data () {
     return {
-      selectedMovie: null,
+      selectedProgram: null,
       showTrailerModal: false,
-      showSearchResults: false,
       search: ''
     }
   },
-  watch: {
-    search (value) {
-      if (value.length > 2) {
-        this.showSearchResults = true
-      } else {
-        this.showSearchResults = false
-      }
-    }
-  },
   methods: {
-    showMovie (movieId) {
-      this.selectedMovie = movieId
-      console.log('Movie id: ' + movieId)
+    showProgram (program) {
+      this.selectedProgram = program
     },
     hideMovie () {
-      this.selectedMovie = null
+      this.selectedProgram = null
     },
     setSearchString (searchString) {
       this.search = searchString

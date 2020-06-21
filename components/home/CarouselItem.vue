@@ -1,8 +1,8 @@
 <template>
-  <div class="carousel-item">
-    <Poster />
+  <div class="carousel-item" v-if="program">
+    <Poster :posterPath="program.poster_path" size="w185" />
     <h3>
-      {{ title }}
+      {{ program.title ? program.title : program.name | reduceLength(30) }}
     </h3>
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
     Poster
   },
   props: {
-    title: String
+    program: Object
   }
 }
 </script>

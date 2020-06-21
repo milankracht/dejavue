@@ -29,6 +29,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~plugins/filters.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -60,5 +61,10 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  env: {
+    apiKey: 'XXX', // your API key here
+    apiBaseUrl: 'https://api.themoviedb.org/3/',
+    posterPathBaseUrl: 'http://image.tmdb.org/t/p/'
   }
 }

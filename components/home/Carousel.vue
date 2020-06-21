@@ -1,24 +1,17 @@
 <template>
   <div class="carousel">
-    <h2>Title</h2>
-    <flickity ref="flickity" :options="flickityOptions">
-      <CarouselItem title="Movie title 1" @staticClick="selectMovie(1)" />
-      <CarouselItem title="Movie title 2" @click="selectMovie(2)" />
-      <CarouselItem title="Movie title 3" @click="selectMovie(3)" />
-      <CarouselItem title="Movie title 4" @click="selectMovie(4)" />
-      <CarouselItem title="Movie title 5" @click="selectMovie(5)" />
-      <CarouselItem title="Movie title 6" @click="selectMovie(6)" />
-      <CarouselItem title="Movie title 7" @click="selectMovie(7)" />
-      <CarouselItem title="Movie title 8" @click="selectMovie(8)" />
-      <CarouselItem title="Movie title 9" @click="selectMovie(9)" />
-      <CarouselItem title="Movie title 10" @click="selectMovie(10)" />
+    <h2>{{ title }}</h2>
+    <p class="alert" v-if="loadingStatus === 4">{{ alertMessage }}</p>
+    <flickity ref="flickity" :options="flickityOptions" v-if="list.length">
+      <CarouselItem :program="program" v-for="program in list" :key="program.id" />
     </flickity>
-    <i class="carousel-button back" @click="previous()" />
-    <i class="carousel-button foreward" @click="next()" />
+    <i class="carousel-button back" @click="previous()" v-if="list.length" />
+    <i class="carousel-button foreward" @click="next()" v-if="list.length" />
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 import Flickity from 'vue-flickity'
 import CarouselItem from '@/components/home/CarouselItem.vue'
 
@@ -27,6 +20,12 @@ export default {
     CarouselItem,
     Flickity
   },
+  props: {
+    title: String,
+    listType: String,
+    mediaType: String,
+    genre: String
+  },
   data () {
     return {
       flickityOptions: {
@@ -34,26 +33,51 @@ export default {
         pageDots: false,
         wrapAround: true,
         groupCells: true
-      }
+      },
+      list: [],
+      loadingStatus: 0,
+      alertMessage: null
     }
   },
-  mounted () {
-    this.$refs.flickity.on('staticClick', (event, pointer, cellElement, cellIndex) => {
-      if (!cellElement) {
-        return
-      }
-      this.handleSelection(cellIndex)
-    })
+  beforeMount () {
+    this.loadMovies()
   },
   methods: {
+    loadMovies () {
+      this.loadingStatus = 1
+
+      let url = process.env.apiBaseUrl
+      url += this.listType === 'trending' ? 'trending/' + this.mediaType + '/week?' : 'discover/movie?with_genres=' + this.genre + '&'
+      url += 'api_key=' + process.env.apiKey
+
+      axios.get(url)
+        .then((response) => {
+          this.list = response.data.results
+          this.apiLoadReady()
+        })
+        .catch(() => {
+          this.loadingStatus = 4
+          this.alertMessage = 'Something went wrong when loading data...'
+        })
+    },
     next () {
       this.$refs.flickity.next()
     },
     previous () {
       this.$refs.flickity.previous()
     },
-    handleSelection (id) {
-      this.$emit('handleMovieSelection', id)
+    handleSelection (program) {
+      this.$emit('handleProgramSelection', program)
+    },
+    apiLoadReady () {
+      this.$nextTick(function () {
+        this.$refs.flickity.rerender()
+        this.$refs.flickity.on('staticClick', (event, pointer, cellElement, cellIndex) => {
+          this.handleSelection(this.list[cellIndex])
+        })
+
+        this.loadingStatus = 3
+      })
     }
   }
 }

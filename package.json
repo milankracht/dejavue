@@ -17,7 +17,9 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "nuxt": "^2.0.0",
     "shaka-player": "^3.0.1",
-    "vue-flickity": "^1.2.1"
+    "vue-dynamic-star-rating": "^1.0.8",
+    "vue-flickity": "^1.2.1",
+    "vue-star-rating": "^1.6.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",

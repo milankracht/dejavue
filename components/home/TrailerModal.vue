@@ -1,7 +1,7 @@
 <template>
   <div class="trailer-modal" :class="{ visible: showTrailerModal }">
-    <div class="container">
-      <h3>Movie title</h3>
+    <div class="container" v-if="selectedProgram">
+      <h3>{{ selectedProgram.title }}</h3>
       <i class="icon close-icon" @click="$emit('handleHideTrailerModal')" />
       <video id="video" controls autoplay></video>
     </div>
@@ -13,7 +13,8 @@ import shaka from 'shaka-player/dist/shaka-player.compiled.js'
 
 export default {
   props: {
-    showTrailerModal: Boolean
+    showTrailerModal: Boolean,
+    selectedProgram: Object
   },
   watch: {
     showTrailerModal (value) {
