@@ -1,8 +1,10 @@
-# dejavue
+# DejaVue
 
 > DejaVue movie app
 
 ## Build Setup
+
+Set your themoviedb.org API key in nuxt.config.js
 
 ```bash
 # install dependencies

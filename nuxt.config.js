@@ -63,7 +63,7 @@ export default {
     }
   },
   env: {
-    apiKey: '1aecf9d9ca46169cef6738e37b0aab04', // your API key here
+    apiKey: 'XXX', // your API key here
     apiBaseUrl: 'https://api.themoviedb.org/3/',
     posterPathBaseUrl: 'http://image.tmdb.org/t/p/'
   }
