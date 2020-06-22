@@ -4,6 +4,8 @@
 
 ## Build Setup
 
+Set your themoviedb.org API key in nuxt.config.js
+
 ```bash
 # install dependencies
 $ npm install
