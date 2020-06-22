@@ -42,6 +42,7 @@ export default {
       if (value) {
         this.page = 1
         this.list = []
+        this.loadMore = false
         this.searchForPrograms()
       }
     }

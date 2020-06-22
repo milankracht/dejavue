@@ -1,8 +1,8 @@
 <template>
   <div class="movie-detail" :class="{ visible: selectedProgram }">
-    <i class="icon back-icon" @click="$emit('handleDeselectMovie')" />
     <div class="container" v-if="selectedProgram">
       <div class="col">
+        <i class="icon back-icon" @click="$emit('handleDeselectMovie')" />
         <h1>{{ selectedProgram.title ? selectedProgram.title : selectedProgram.name }}</h1>
         <div class="hide-desktop">
           <Poster :posterPath="selectedProgram.poster_path" size="w342" />

@@ -14,5 +14,4 @@ export default {
     }
   }
 }
-// :style="'background-image: url(' + process.env.posterPathBaseUrl + '/w160/' + posterPath + ')'"
 </script>

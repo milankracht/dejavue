@@ -29,7 +29,7 @@
       @handleProgramSelection="showProgram" />
     <Detail
       :selectedProgram="selectedProgram"
-      @handleDeselectMovie="hideMovie"
+      @handleDeselectMovie="hideProgram"
       @handleShowTrailerModal="showTrailerModal = true" />
     <TrailerModal
       :selectedProgram="selectedProgram"
@@ -64,7 +64,7 @@ export default {
     showProgram (program) {
       this.selectedProgram = program
     },
-    hideMovie () {
+    hideProgram () {
       this.selectedProgram = null
     },
     setSearchString (searchString) {

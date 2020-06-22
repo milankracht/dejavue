@@ -10,12 +10,15 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "test": "jest"
+    "test": "npm run test:unit",
+    "test:unit": "jest"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^3.0.0-0",
+    "jest-vue-preprocessor": "^1.7.1",
     "nuxt": "^2.0.0",
+    "nuxt-babel": "^1.0.1",
     "shaka-player": "^3.0.1",
     "vue-dynamic-star-rating": "^1.0.8",
     "vue-flickity": "^1.2.1",

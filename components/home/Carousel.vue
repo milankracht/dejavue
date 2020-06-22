@@ -40,10 +40,10 @@ export default {
     }
   },
   beforeMount () {
-    this.loadMovies()
+    this.loadPrograms()
   },
   methods: {
-    loadMovies () {
+    loadPrograms () {
       this.loadingStatus = 1
 
       let url = process.env.apiBaseUrl
