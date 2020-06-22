@@ -1,4 +1,4 @@
-# dejavue
+# DejaVue
 
 > DejaVue movie app
 
