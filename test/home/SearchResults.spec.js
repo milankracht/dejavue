@@ -27,16 +27,9 @@ describe('SearchResults', () => {
       wrapper = null
 
       const response = { 
-        data: [
-          {
-            id: 1,
-            title: 'foo'
-          },
-          {
-            id: 2,
-            title: 'bar'
-          }
-        ]
+        data: {
+          results: [{ id: 1, title: 'foo'}, { id: 2, title: 'bar' }]
+        }
       }
   
       axios.get.mockResolvedValue(response)
@@ -61,7 +54,7 @@ describe('SearchResults', () => {
       expect(axios.get).toHaveBeenCalledTimes(1)
 
       wrapper.vm.$nextTick().then(function () {
-        expect(wrapper.vm.list).toEqual(response.data)
+        expect(wrapper.vm.list).toEqual([{ id: 1, title: 'foo'}, { id: 2, title: 'bar' }])
         expect(wrapper.vm.loadMore).toEqual(false)
       })
     })
