@@ -1,0 +1,53 @@
+/* MIXINS */
+@mixin transition-in() {
+  transition: all 0.3s ease-in-out;
+}
+
+@mixin transition-out() {
+  transition: all 0.15s ease-in-out;
+}
+
+@mixin ellipsis() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin bp-sm {
+  @media only screen and (min-width: 600px) {
+      @content;
+  }
+}
+
+@mixin bp-md {
+  @media only screen and (min-width: 1024px) {
+      @content;
+  }
+}
+
+@mixin bp-lg {
+  @media only screen and (min-width: 1200px) {
+      @content;
+  }
+}
+
+@mixin bp-xl {
+  @media only screen and (min-width: 1920px) {
+      @content;
+  }
+}
+
+@mixin regular {
+  font-family: 'Ubuntu';
+  font-weight: normal;
+}
+
+@mixin medium {
+  font-family: 'Ubuntu';
+  font-weight: 500;
+}
+
+@mixin bold {
+  font-family: 'Ubuntu';
+  font-weight: 700;
+}

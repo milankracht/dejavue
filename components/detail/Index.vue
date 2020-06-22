@@ -39,3 +39,61 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @import '@/assets/css/main.scss';
+
+  .movie-detail {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 100vw;
+    width: 100%;
+    height: 100vh;
+    background: $gradient-dark;
+    background-image: linear-gradient($gradient-light, $gradient-dark);
+    transition: left 0.15s ease-in-out;
+    overflow-y: auto;
+
+    &.visible {
+      left: 0;
+      transition: left 0.35s ease-in-out;
+    }
+
+    .back-icon {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+
+      @include bp-sm {
+        top: 2rem;
+      }
+    }
+
+    .btn {
+      margin: 1rem 0 2rem;
+    }
+
+    .col {
+      float: left;
+      width: 100%;
+      margin-top: 4rem;
+
+      @include bp-sm {
+        margin-top: 7rem;
+
+        &:first-child {
+          width: calc(100% - 24rem);
+        }
+        &:last-child {
+          float: right;
+          width: 20rem;
+          text-align: right;
+          > * {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+</style>

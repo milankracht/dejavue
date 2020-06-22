@@ -58,3 +58,46 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @import '@/assets/css/main.scss';
+
+  .trailer-modal {
+    position: fixed;
+    z-index: 4;
+    top: 100vh;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background: $gradient-dark;
+    transition: top 0.15s ease-in-out;
+
+    &.visible {
+      top: 0;
+      transition: top 0.35s ease-in-out;
+    }
+
+    h3 {
+      float: left;
+      margin: 20vh 0 1rem;
+
+      @include bp-sm {
+        margin-top: 10vh;
+      }
+    }
+
+    .close-icon {
+      float: right;
+      margin: calc(20vh - 0.5rem) 0 1rem;
+
+      @include bp-sm {
+        margin-top: 10vh;
+      }
+    }
+
+    video {
+      width: 100%;
+      background-color: $gradient-light;
+    }
+  }
+</style>

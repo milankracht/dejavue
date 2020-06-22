@@ -73,3 +73,46 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @import '@/assets/css/main.scss';
+
+  .search-results {
+    position: fixed;
+    z-index: 1;
+    top: 100vh;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: $gradient-dark;
+    background-image: linear-gradient($gradient-light, $gradient-light 10rem, $gradient-dark);
+    transition: top 0.15s ease-in-out;
+    overflow-y: auto;
+
+    &.visible {
+      top: 0;
+      transition: top 0.15s ease-in-out;
+    }
+
+    .search-results-list {
+      position: relative;
+      float: left;
+      width: 100%;
+      border-bottom: 1px solid rgba(white, 0.25);
+    }
+
+    .carousel-item {
+      float: left;
+      margin: 0 1rem 2rem 0;
+    }
+
+    .poster {
+      width: 8rem;
+      height: 10rem;
+    }
+
+    .btn {
+      margin: 1rem 0 2rem;
+    }
+  }
+</style>

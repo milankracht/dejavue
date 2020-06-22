@@ -82,3 +82,37 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @import '@/assets/css/main.scss';
+
+  .carousel {
+    position: relative;
+
+    .carousel-button {
+      position: absolute;
+      top: 5.5rem;
+      display: block;
+      width: 4rem;
+      height: 4rem;
+      background-size: 75%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      @include transition-out();
+
+      &:hover {
+        transform: scale(1.15);
+        @include transition-in();
+      }
+      &.back {
+        left: -1rem;
+        background-image: url('/arrow-back@2x.png');
+      }
+      &.foreward {
+        right: -1rem;
+        background-image: url('/arrow-foreward@2x.png');
+      }
+    }
+  }
+</style>
