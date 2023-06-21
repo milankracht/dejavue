@@ -17,7 +17,7 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^3.0.0-0",
     "jest-vue-preprocessor": "^1.7.1",
-    "nuxt": "^2.0.0",
+    "nuxt": "^3.4.3",
     "nuxt-babel": "^1.0.1",
     "shaka-player": "^3.0.1",
     "vue-dynamic-star-rating": "^1.0.8",
